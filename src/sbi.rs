@@ -56,13 +56,6 @@ pub fn console_getchar() -> usize {
 }
 
 pub fn shutdown() -> ! {
-    // 使用新的SBI v2.0.0 System Reset扩展调用关机
-    sbi_call(SBI_EXT_SRST, SBI_SRST_SHUTDOWN, SBI_SRST_TYPE_SHUTDOWN, 0, 0);
-    
-    // 如果SBI调用返回，进入低功耗循环
-    loop {
-        unsafe {
-            core::arch::asm!("wfi");
-        }
-    }
+    sbi_rt::system_reset(sbi_rt::Shutdown, sbi_rt::NoReason);
+    panic!("It should shutdown!"); // Should not reach here
 }

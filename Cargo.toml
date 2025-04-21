@@ -11,3 +11,5 @@ build = "build.rs"  # <-- 添加这行，告诉 Cargo 使用 build.rs
 log = "0.4"
 sbi-rt = { version = "0.0.3", features = ["legacy"] } 
 lazy_static = { version = "1.4.0", features = ["spin_no_std"] } # <-- 添加 lazy_static 依赖
+
+riscv = { version = "0.13.0"} # <-- 添加这一行
