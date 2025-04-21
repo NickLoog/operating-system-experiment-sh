@@ -1,0 +1,10 @@
+[package]
+name = "user_lib" # 指定库的名字，这样应用程序可以用 extern crate user_lib 引用
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# 目前不需要特殊依赖
+
+# [[bin]] 部分由 Makefile 或 cargo build 自动处理 src/bin 下的文件
+# 无需在此手动列出
