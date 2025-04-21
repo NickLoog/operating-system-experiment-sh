@@ -1,9 +1,13 @@
 [package]
-name = "os"
+name = "os" 
 version = "0.1.0"
 edition = "2021"
+build = "build.rs"  # <-- 添加这行，告诉 Cargo 使用 build.rs
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# ... 你现有的依赖 ...
 log = "0.4"
-
-
+sbi-rt = { version = "0.0.3", features = ["legacy"] } 
+lazy_static = { version = "1.4.0", features = ["spin_no_std"] } # <-- 添加 lazy_static 依赖
